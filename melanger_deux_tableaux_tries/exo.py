@@ -1,14 +1,23 @@
 import sys
 
 def sorted_fusion(array1,array2):
-    result =[]
-    print(array1,array2)
-    for i in range(len(array2)):
-        for j in range(len(array1)-1):
-           
-    return result
-
+    result = []
+    i, j = 0, 0
+    len1, len2 = len(array1), len(array2)
     
+    while i < len1 and j < len2:
+        if array1[i] < array2[j]:
+            result.append(array1[i])
+            i += 1
+        else:
+            result.append(array2[j])
+            j += 1
+
+    # Append remaining elements
+    result.extend(array1[i:])
+    result.extend(array2[j:])
+
+    return result
     
 
 def create_arrays(array):
@@ -44,7 +53,8 @@ if __name__ == "__main__":
     arguments = sys.argv[1:]
     if verification_arguments(arguments):
         array1,array2 = create_arrays(arguments)
-        print(sorted_fusion(array1,array2))
+        resultat = sorted_fusion(array1,array2)
+        afficher(resultat)
     
     else:
         erreur()
