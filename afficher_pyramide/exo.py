@@ -3,16 +3,19 @@ import sys
 
 def afficher_pyramide(string,number_of_line):
     number_of_line = int(number_of_line)
+    # nommbre max d'espace devant la première ligne
+    space_max = number_of_line - 1
+    # utilisé pour rajouter 2 à chaque étage
     string_number = 1
     for i in range(number_of_line):
-        print(" "* (number_of_line - 1 - i) + string * string_number)
+        print(" " * (space_max - i) + string * string_number)
         string_number += 2
 
 
 def verification_arguments(arguments):
     ok = False
     if len(arguments) == 2:
-        if arguments[1].isdigit():
+        if arguments[1].isdigit() and len(arguments[1]) == 1:
             ok = True
     return ok
 
