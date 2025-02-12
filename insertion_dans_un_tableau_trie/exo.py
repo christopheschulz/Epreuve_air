@@ -3,14 +3,17 @@ import sys
 def sorted_insert(array,new_element):
     result = []
     new_element = int(new_element)
-    for i in range(0,len(array)-1):
-        if int(array[i]) < new_element < int(array[i+1]):
-            result.append(int(array[i]))
+    inserted = False  
+
+    for i in range(len(array)):
+        if not inserted and int(array[i]) > new_element:
             result.append(new_element)
-        else:
-            result.append(int(array[i]))
-    result.append(int(array[-1]))
-                  
+            inserted = True
+        result.append(int(array[i]))
+
+    if not inserted:
+        result.append(new_element)
+
     return result
     
 
