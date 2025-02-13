@@ -1,7 +1,6 @@
 import sys
 
 def une_seule_a_la_fois(array):
-    print(len(array))
     result = ""
     result += array[0]
     j = 0

@@ -23,7 +23,6 @@ def afficher(chaine):
         for i in range(len(chaine)-1):
             print(chaine[i],end=", ")
         print(chaine[-1])
-        print()
 
 
 def erreur():
