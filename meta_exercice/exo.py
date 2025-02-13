@@ -32,6 +32,7 @@ tests = [
 ]
 
 p = Path.home() / "Harry" / "Epreuve_air"
+success = 0
 
 # for dossier in dossiers:
 for i in range(len(tests)):
@@ -41,9 +42,12 @@ for i in range(len(tests)):
     args = ["python3", str(fichier),*command]
     result = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     if result.stdout.strip() == tests[i][2].strip():
-        print(f"{dossier_parent} (1/1) : sucess")
+        #print(dossier_parent)
+        print(f"air{str(i).zfill(2)} (1/1) : sucess")
+        success +=1
     else:
         print(f"{dossier_parent} (1/1) : failure")
+print(f"Total success {success}/{len(tests)}")
 
 
         
