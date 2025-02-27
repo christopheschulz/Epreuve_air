@@ -78,11 +78,11 @@ for i in range(len_dict_tests):
         result = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         
         if result.stdout.strip() == tests_dict[i]["result"][j].strip():
-            print(f"\033[32m{fichier} ({j+1}/{number_of_tests}) : sucess\033[0m")
+            print(f"\033[32m{fichier.stem} ({j+1}/{number_of_tests}) : sucess\033[0m")
             success +=1
         else:
             #print(tests[i][0])
-            print(f"\033[31m{fichier} ({j+1}/{number_of_tests}) : failure\033[0m")
+            print(f"\033[31m{fichier.stem} ({j+1}/{number_of_tests}) : failure\033[0m")
         test += 1
 
 print(f"Total success {success}/{test}")
