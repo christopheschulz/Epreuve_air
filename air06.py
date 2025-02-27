@@ -1,3 +1,5 @@
+# Contrôle de pass sanitaire
+
 import sys
 
 def pass_sanitaire(array,controle):

@@ -1,3 +1,5 @@
+# Un seul à la fois
+
 import sys
 
 def une_seule_a_la_fois(array):

@@ -1,3 +1,5 @@
+# Afficher le contenu
+
 import sys
 from pathlib import Path
 
@@ -8,27 +10,30 @@ def afficher_contenu_fichier(file):
     return content
 
 
-def verification_arguments(arguments):
-    ok = False
-    if len(arguments) == 1:
-        ok = True
-    return ok
+def args_are_valid(arguments):
+    if len(arguments) != 1:
+        return False
+    return True
 
 
-def afficher(chaine):
+def display(resultat):
     print(resultat)
 
 
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     dossier = Path.cwd()
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         fichier = dossier / arguments[0]
         resultat = afficher_contenu_fichier(fichier)
-        afficher(resultat)
+        display(resultat)
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

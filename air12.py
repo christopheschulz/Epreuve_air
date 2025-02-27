@@ -1,3 +1,5 @@
+# Le roi des tris
+
 import sys
 
 #partitionner(tableau T, entier premier, entier dernier, entier pivot)
@@ -19,8 +21,10 @@ def partitionner(tableau, premier, dernier, pivot):
     tableau[dernier], tableau[j] = tableau[j], tableau[dernier]
     return j
 
+
 def choix_pivot(tableau, premier, dernier):
     return premier
+
 
 #tri_rapide(tableau T, entier premier, entier dernier)
 def tri_rapide(tableau, premier=None, dernier=None):
@@ -44,28 +48,32 @@ def tri_rapide(tableau, premier=None, dernier=None):
     
     return tableau
 
-def verification_arguments(arguments):
-    ok = False  
+
+def verification_arguments(arguments):  
     all_arguments_int = all(arg.isdigit() for arg in arguments)
-    if all_arguments_int:
-        ok = True
-    return ok
+    if not all_arguments_int:
+        return False
+    return True
 
 
-def afficher(chaine):
+def display(chaine):
     for c in chaine:
        print(c,end=" ")
     print()
 
 
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
     if verification_arguments(arguments):
         resultat = tri_rapide(arguments)
-        afficher(resultat)
+        display(resultat)
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

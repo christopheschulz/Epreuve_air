@@ -1,3 +1,4 @@
+# Split en fonction
 
 import sys
 

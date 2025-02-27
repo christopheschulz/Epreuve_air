@@ -1,3 +1,5 @@
+# Mélanger deux tableaux triés
+
 import sys
 
 def sorted_fusion(array1,array2):
@@ -13,7 +15,6 @@ def sorted_fusion(array1,array2):
             result.append(array2[j])
             j += 1
 
-    # Append remaining elements
     result.extend(array1[i:])
     result.extend(array2[j:])
 
@@ -32,29 +33,32 @@ def create_arrays(array):
     return array1,array2
 
 
-def verification_arguments(arguments):
-    ok = False 
-    if "fusion" in arguments and arguments[-1] != "fusion":
-        ok = True   
-    return ok
+def args_are_valid(arguments):
+    if not "fusion" in arguments and arguments[-1] == "fusion":
+        return False  
+    return True
 
 
-def afficher(chaine):
+def display(chaine):
     for c in chaine:
        print(c,end=" ")
     print()
 
 
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         array1,array2 = create_arrays(arguments)
         resultat = sorted_fusion(array1,array2)
-        afficher(resultat)
+        display(resultat)
     
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

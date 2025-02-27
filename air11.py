@@ -1,3 +1,5 @@
+# Afficher une pyramide
+
 import sys
 
 
@@ -12,28 +14,27 @@ def afficher_pyramide(string,number_of_line):
         string_number += 2
 
 
-def verification_arguments(arguments):
-    ok = False
-    if len(arguments) == 2:
-        if arguments[1].isdigit() and len(arguments[1]) == 1:
-            ok = True
-    return ok
+def args_are_valid(arguments):
+    if len(arguments) != 2:
+        return False
+    if not arguments[1].isdigit() and len(arguments[1]) != 1:
+            return False
+    return True
 
 
-def afficher(chaine):
-   pass
-
-
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         string = arguments[0]
         line = arguments[1]
         afficher_pyramide(string,line)
-        
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

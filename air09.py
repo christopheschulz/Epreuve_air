@@ -1,3 +1,5 @@
+# Rotation vers la gauche
+
 import sys
 
 
@@ -9,14 +11,13 @@ def ma_rotation(array):
     return result
 
 
-def verification_arguments(arguments):
-    ok = False
-    if len(arguments) > 1:
-        ok = True
-    return ok
+def args_are_valid(arguments):
+    if not len(arguments) > 1:
+        return False
+    return True
 
 
-def afficher(chaine):
+def display(chaine):
     if len(chaine) == 1:
         print(chaine[0])
     else:
@@ -25,14 +26,18 @@ def afficher(chaine):
         print(chaine[-1])
 
 
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         resultat = ma_rotation(arguments)
-        afficher(resultat)
+        display(resultat)
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

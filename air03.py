@@ -1,3 +1,5 @@
+# Chercher l’intrus
+
 import sys
 
 def chercher_intru(array):

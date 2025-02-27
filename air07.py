@@ -1,3 +1,5 @@
+# Insertion dans un tableau trié
+
 import sys
 
 def sorted_insert(array,new_element):
@@ -17,15 +19,14 @@ def sorted_insert(array,new_element):
     return result
     
 
-def verification_arguments(arguments):
-    ok = False  
+def args_are_valid(arguments): 
     all_arguments_int = all(arg.isdigit() for arg in arguments)
-    if all_arguments_int:
-        ok = True
-    return ok
+    if not all_arguments_int:
+        return False
+    return True
 
 
-def afficher(chaine):
+def display(chaine):
     for c in chaine:
        print(c,end=" ")
     print()
@@ -34,11 +35,13 @@ def afficher(chaine):
 def erreur():
     print("error")
 
-
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         resultat = sorted_insert(arguments[:-1],arguments[-1])
-        afficher(resultat)
+        display(resultat)
     else:
         erreur()
+
+if __name__ == "__main__":
+    main()

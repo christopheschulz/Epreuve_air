@@ -1,4 +1,5 @@
-from pprint import pprint
+# Meta exercice
+
 from pathlib import Path
 import subprocess
 

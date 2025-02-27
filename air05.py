@@ -1,3 +1,5 @@
+# Sur chacun d’entre eux
+
 import sys
 
 def sur_chacun(array):
