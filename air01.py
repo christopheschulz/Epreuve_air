@@ -23,27 +23,27 @@ def fonction_split(string_a_couper,string_separateur):
     return result
 
 
-def verification_arguments(arguments):
-    ok = False
-    arguments_is_alpha = all(argument.replace(' ','').isalpha() for argument in arguments)
+def args_are_valid(arguments):
  
-    if len(arguments) == 2 and arguments_is_alpha:
-        ok = True
-    return ok
+    if len(arguments) != 2: 
+        return False
+    return True
 
 
-def afficher(chaine):
+def display(chaine):
     for c in chaine:
         print(c)
 
 
-def erreur():
+def error():
     print("error")
 
+def main():
+    arguments = sys.argv[1:]
+    if args_are_valid(arguments):
+        display(fonction_split(arguments[0],arguments[1]))
+    else:
+        error()
 
 if __name__ == "__main__":
-    arguments = sys.argv[1:]
-    if verification_arguments(arguments):
-        afficher(fonction_split(arguments[0],arguments[1]))
-    else:
-        erreur()
+    main()

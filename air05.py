@@ -19,33 +19,32 @@ def sur_chacun(array):
     return result
 
 
-    
-
-
-def verification_arguments(arguments):
-    ok = False  
+def args_are_valid(arguments): 
     operateur = ["+", "-", "*", "/"]
     all_digit = all(arg.isdigit() for arg in arguments[:-1])
-    if arguments[-1][0] in operateur and all_digit:
-        ok = True
-    return ok
+    if arguments[-1][0] not in operateur and not all_digit:
+        return False
+    return True
 
 
-def afficher(chaine):
+def display(chaine):
     for c in chaine:
        print(c,end=" ")
     print()
 
-  
 
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         calcul = sur_chacun(arguments)
-        afficher(calcul)
+        display(calcul)
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

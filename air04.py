@@ -8,30 +8,27 @@ def une_seule_a_la_fois(array):
         if array[i] != result[j]:
             result += array[i]
             j += 1
-        
-            
+                
     return result
 
-    
+
+def args_are_valid(arguments): 
+    if len(arguments) != 1:
+        return False
+    return True
 
 
-def verification_arguments(arguments):
-    ok = False  
-    if len(arguments) == 1:
-        ok = True
-    return ok
-
-
-def afficher(chaine):
-   return
-
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         print(une_seule_a_la_fois(arguments[0]))
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

@@ -17,18 +17,13 @@ def chercher_intru(array):
 
     erreur()
 
-    
 
+def args_are_valid(arguments):
+      
+    if not len(arguments) > 2:
+        return False
+    return True
 
-def verification_arguments(arguments):
-    ok = False  
-    if len(arguments) > 2:
-        ok = True
-    return ok
-
-
-def afficher(chaine):
-    pass
 
 def erreur():
     print("error")
@@ -36,7 +31,7 @@ def erreur():
 
 if __name__ == "__main__":
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         print(chercher_intru(arguments))
     else:
         erreur()

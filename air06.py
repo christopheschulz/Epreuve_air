@@ -10,14 +10,14 @@ def pass_sanitaire(array,controle):
     return result
     
 
-def verification_arguments(arguments):
-    ok = False  
-    if len(arguments[-1]) == 1:
-        ok = True
-    return ok
+def args_are_valid(arguments):
+     
+    if len(arguments[-1]) != 1:
+        return False
+    return True
 
 
-def afficher(chaine):
+def display(chaine):
     if len(chaine) == 1:
         print(chaine[0])
     else:
@@ -27,14 +27,18 @@ def afficher(chaine):
         print()
 
 
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         resultat = pass_sanitaire(arguments[:-1],arguments[-1])
-        afficher(resultat)
+        display(resultat)
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()

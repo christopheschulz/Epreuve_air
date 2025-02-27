@@ -10,27 +10,25 @@ def fonction_concat(array_de_string,separateur):
             result += ar
     return result
 
-   
 
-
-def verification_arguments(arguments):
-    ok = False
+def args_are_valid(arguments):
     
-    if len(arguments) > 2:
-        ok = True
-    return ok
+    if not len(arguments) > 2:
+       return False
+    return True
 
 
-def afficher(chaine):
-    pass
-
-def erreur():
+def error():
     print("error")
 
 
-if __name__ == "__main__":
+def main():
     arguments = sys.argv[1:]
-    if verification_arguments(arguments):
+    if args_are_valid(arguments):
         print(fonction_concat(arguments[:-1],arguments[-1]))
     else:
-        erreur()
+        error()
+
+
+if __name__ == "__main__":
+    main()
